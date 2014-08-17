@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>chatterbox</title>
     <link rel="stylesheet" href="styles/styles.css">
-
     <!-- dependencies -->
     <script src="bower_components/jquery/jquery.min.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
@@ -12,22 +11,24 @@
     <script src="scripts/config.js"></script>
     <script src="scripts/app.js"></script>
   </head>
+
   <body>
     <div id="main">
-      <h1>chatterbox</h1>
-      <!-- Your HTML goes here! -->
-    </div>
-    <form>
-      Write new message:<input class="message_text" type = "text" name="new_message"/><br/>
-      <input class="submit" type="submit", value= "Submit"/>
-    </form>
-      <select>
-      </select>
-    <div id="chats">
-
-    </div>
-    <div class="chatrooms">
-
+      <div id="header">
+        <h1>chatterbox</h1>
+      </div>
+      <div id="chats">
+      </div>
+      <div id="rooms">
+        <select>
+        </select>
+      </div>
+      <div id="typeMessage">
+        <form class="sendMessage">
+          <input class="message_text" type="text" placeholder="Type message here"/>
+          <input class="submit" type="submit" value="Send your message"/>
+        </form>
+      </div>
     </div>
     <script>
       app.init();

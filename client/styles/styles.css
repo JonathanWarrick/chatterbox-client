@@ -6,7 +6,7 @@ body {
 }
 
 #main {
-    width: 500px;
+    width: 800px;
     margin: auto;
     text-align: left;
     background: white;
@@ -46,6 +46,38 @@ body {
     line-height: 13px;
 }
 
+#chats {
+    width: 600px;
+    height: 500px;
+    border: solid #efa;
+    float: left;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+#rooms {
+    width: 150px;
+    height: 500px;
+    border: solid #efa;
+    float: right;
+    border-radius: 10px;
+}
+
+.chatmessage:nth-child(2n) {
+    background-color: #afd;
+}
+
+.username {
+    width: 100px;
+    padding-left: 15px;
+    float: left;
+}
+
+.messagetext {
+    padding-left: 15px;
+
+}
+
 form {
     padding: 20px;
     padding-left: 0;
@@ -54,9 +86,15 @@ form {
 
 form input[type=text] {
     margin-right: 10px;
-    width: 70%;
+    width: 600px;
     font-size: 12px;
     padding: 5px;
+}
+
+form input[type=submit] {
+    width: 130px;
+    height: 29px;
+    float: right;
 }
 
 .chat {
@@ -81,4 +119,14 @@ form input[type=text] {
 
 .spinner img {
     padding: 10px;
+}
+
+.chatrooms {
+    list-style: none;
+    width: 150px;
+    margin: 0px;
+    padding:0px;
+}
+.chatrooms:nth-child(2n) {
+    background-color: #eef98a;
 }

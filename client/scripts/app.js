@@ -6,7 +6,8 @@ var app = {
   server : 'https://api.parse.com/1/classes/chatterbox',
   friends : {},
   currentRoom : "lobby",
-  rooms : {}
+  rooms : {},
+  numOfMessages: 25
 };
 
 // Create INIT function to initialize Chatterbox functionality upon page load
@@ -53,7 +54,8 @@ app.fetch = function() {
     success: function(response) {
       console.log(response);
       app.clearMessages();
-      _.each(response["results"], function(message) {
+      var limitMessages = response["results"].slice(0, app.numOfMessages);
+      _.each(limitMessages, function(message) {
         app.rooms[message.roomname] = message.roomname;
         app.addMessage(message);
       });
@@ -95,7 +97,15 @@ app.addMessage = function(response) {
     if (response.text.match(/[<>]/g)) {
       var message = "ILLEGAL MESSAGE";
     } else {
-      var message = '<span class="chat_item" id=' + response.username + '>' + response.username + "</span>" + ": " + response.text;
+      var message = '<span class="username" id=' + 
+                    response.username + 
+                    '>' + 
+                    response.username +
+                    ': ' +
+                    '</span>' +
+                    '<span class="messagetext">' +
+                    response.text +
+                    '</span>';
     }
 
     //TODO: add friend class to clicked friends
@@ -105,7 +115,7 @@ app.addMessage = function(response) {
 
     // add messages for specific room if dropdown is not "lobby"
     if (app.currentRoom === "lobby" || response.roomname === app.currentRoom) {
-      $("#chats").append("<p>" + message + "</p>");
+      $("#chats").append('<div class="chatmessage">' + message + "</div>");
     }
   }
 };
